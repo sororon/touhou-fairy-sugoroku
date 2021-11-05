@@ -1,0 +1,39 @@
+
+/* tag */
+
+body{
+    background: lightyellow;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    text-align: center;
+    background-color: azure;
+}
+
+main{
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    background-color: lavenderblush;
+}
+
+
+/* id */
+
+
+
+/* class */
+
+.h-list{
+    padding: 0% 20px;
+    margin: 0% auto;
+}
+
+.h-list-item{
+    list-style: none;
+    display: inline-block;
+    margin: 0% 20px;
+}

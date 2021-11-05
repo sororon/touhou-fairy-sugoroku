@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>index-html</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>東方すごろく</h1>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <br>
+        <h2 id="turn-count"></h2>
+        <h4 id="who-turn"></h4>
+        <div>
+            <div id="show-map"></div>
+            <div id="show-p1"></div>
+        </div>
+        <br>
+        <h3 id="move-pos"></h3>
+        
+        <!-- キャラクターの表示 -->
+        <div>
+            <span id="p1-image"></span>
+        </div>
+        <h5 id="show-event"></h5>
+        <br>
+        
+        <!-- セレクト画面 -->
+        <div>
+            <div>
+                <span id="num1-img"></span><span id="num2-img"></span><span id="num3-img"></span><span id="num4-img"></span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger" id="select-btn1" onclick="selectCharacter(sunny)">サニーミルク</button>
+                <button type="button" class="btn btn-warning" id="select-btn2" onclick="selectCharacter(luna)">ルナチャイルド</button>
+                <button type="button" class="btn btn-primary" id="select-btn3" onclick="selectCharacter(star)">スターサファイア</button>
+                <button type="button" class="btn btn-dark" id="select-btn4" onclick="selectCharacter(clown)">クラウンピース</button>
+            </div>
+            <div>
+                <span id="num5-img"></span><span id="num6-img"></span><span id="num8-img"></span><span id="num9-img"></span>
+            </div>
+            <div>
+                <button type="button" class="btn btn-light" id="select-btn5" onclick="selectCharacter(lily)">リリーホワイト</button>
+                <button type="button" class="btn btn-secondary" id="select-btn6" onclick="selectCharacter(larva)">エタニティラルバ</button>
+                <button type="button" class="btn btn-success" id="select-btn8" onclick="selectCharacter(dai)">大妖精</button>
+                <button type="button" class="btn btn-info" id="select-btn9" onclick="selectCharacter(chirno)">チルノ</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info" id="select-btn10" onclick="selectStage(1)"></button>
+                <button type="button" class="btn btn-info" id="select-btn11" onclick="selectStage(2)"></button>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg"><span id="event-button" onclick="mainButton()">ボタン</span></button>
+        </div>
+        <br>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>”東方すごろく”は『東方Project』を原作とした二次創作作品です。</p>
+        <p>『東方Project』及び関連タイトルは上海アリス幻樂団の著作物です。</p>
+        <p>画像ははるかさん（https://seiga.nicovideo.jp/user/illust/3494232）のものを利用させて頂きました。</p>
+        <p>©上海アリス幻樂団</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="bootstrap/jquery-3.5.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/selectCharacter.js"></script>
+    <script src="js/gameEvent.js"></script>
+    <script src="js/squareEvent.js"></script>
+    <script src="js/stageConfig.js"></script>
+    <script src="js/showText.js"></script>
+    <script src="js/showMap.js"></script>
+    <script src="js/showImage.js"></script>
+    <script src="js/initSetup.js"></script>
+</body>
+</html>
