@@ -93,10 +93,12 @@ function mainButton() {
             }
             break;
         case 2: /* ステージ選択 */
-            scene++;
-            showText();
-            showMap();
-            showImage();
+            if (stage.length > 0) {
+                scene++;
+                showText();
+                showMap();
+                showImage();
+            }
             break;
         case 3: /* 順番を決める */
             decideOrder();
