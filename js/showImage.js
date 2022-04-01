@@ -1,4 +1,3 @@
-
 /* プレイヤー１～４のid取得 */
 let p_img = [];
 p_img[0] = document.getElementById("p1-image");
@@ -17,8 +16,8 @@ s_img[3] = document.getElementById("num3-img");
 s_img[4] = document.getElementById("num4-img");
 s_img[5] = document.getElementById("num5-img");
 s_img[6] = document.getElementById("num6-img");
-s_img[7] = document.getElementById("num8-img");
-s_img[8] = document.getElementById("num9-img");
+s_img[7] = document.getElementById("num7-img");
+s_img[8] = document.getElementById("num8-img");
 
 function resultImage(player) {
     if (player.name != winPlayer) {
@@ -161,9 +160,7 @@ function showImage() {
                         break;
                 }
                 break;
-            case 7: /* ルーミア */
-                break
-            case 8: /* 大妖精 */
+            case 7: /* 大妖精 */
                 switch (orderList[i].emo) {
                     case "nomal":
                         p_img[i].innerHTML = '<img src="img/dai-nomal.png" alt="img4" width=150 height=225>';
@@ -180,8 +177,8 @@ function showImage() {
                     default:
                         break;
                 }
-                break;
-            case 9: /* チルノ */
+                break
+            case 8:  /* チルノ */
                 switch (orderList[i].emo) {
                     case "nomal":
                         p_img[i].innerHTML = '<img src="img/chirno-nomal.png" alt="img4" width=150 height=225>';

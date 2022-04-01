@@ -1,4 +1,3 @@
-
 let DEBUG_game = 0;
 
 /* min~maxからランダムな整数を生成 */
@@ -82,7 +81,7 @@ function whoOrder(num) {
 }
 
 /* 出た目の分キャラを動かした後に、マス目の効果を反映させるために2ms止める（無名関数） */
-const func_timer = (index, time) => {
+const func_timer = (index, time = 1000) => {
     const wait_time = () => { // setTimeoutの引数の関数はVoidのため
         squareEffect(orderList[index]);
         showMap();
@@ -100,19 +99,19 @@ function throwDice() {
     switch (roundCount) {
         case 1: // 一人目
             gotoPlayer(orderList[0]);
-            func_timer(0, 2000);
+            func_timer(0, );
             break;
         case 2:
             gotoPlayer(orderList[1]);
-            func_timer(1, 2000);
+            func_timer(1, );
             break;
         case 3:
             gotoPlayer(orderList[2]);
-            func_timer(2, 2000);
+            func_timer(2, );
             break;
         case 4:
             gotoPlayer(orderList[3]);
-            func_timer(3, 2000);
+            func_timer(3, );
             break;
         default:
             break;

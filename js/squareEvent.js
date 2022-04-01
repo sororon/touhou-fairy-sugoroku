@@ -1,4 +1,3 @@
-
 let s_event = document.getElementById("show-event");
 
 /* ゴール */

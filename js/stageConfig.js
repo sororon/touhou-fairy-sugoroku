@@ -1,6 +1,4 @@
-
 let DEBUG_stage = 0;
-
 
 function setStage(stage_num) {
     switch (stage_num) {
@@ -45,7 +43,6 @@ function setStage(stage_num) {
             break;
     }
 
-    
  if (DEBUG_stage == 1) {
     for (let i = 0; i < 21; i++) {
         console.log(sqElement[i]);
@@ -62,6 +59,3 @@ lostMoney
 onpos
 backpos
 */
-
-
-

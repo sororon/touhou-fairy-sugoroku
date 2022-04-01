@@ -1,4 +1,3 @@
-
 /* idの検出 */
 let t_count = document.getElementById("turn-count");
 let t_name = document.getElementById("who-turn");
@@ -12,10 +11,10 @@ s_button[3] = document.getElementById("select-btn3");
 s_button[4] = document.getElementById("select-btn4");
 s_button[5] = document.getElementById("select-btn5");
 s_button[6] = document.getElementById("select-btn6");
-s_button[7] = document.getElementById("select-btn8");
-s_button[8] = document.getElementById("select-btn9");
+s_button[7] = document.getElementById("select-btn7");
+s_button[8] = document.getElementById("select-btn8");
+s_button[9] = document.getElementById("select-btn9");
 s_button[10] = document.getElementById("select-btn10");
-s_button[11] = document.getElementById("select-btn11");
 
 /* 情報の表示 */
 function showText() {
@@ -48,14 +47,14 @@ function showText() {
             for (let i = 1; i < 9; i++) {
                 s_button[i].textContent = "";
             }
-            s_button[10].textContent = String("ステージ１");
-            s_button[11].textContent = String("ステージ２");
+            s_button[9].textContent = String("ステージ１");
+            s_button[10].textContent = String("ステージ２");
             break;
         case 3: /* 順番決め */
             t_count.textContent = String("プレイヤーの順番を決めます");
             t_name.textContent = String("下にあるボタンをクリックすると順番が決定します");
             e_button.textContent = String("順番を決める");
-            for (let i = 10; i < 12; i++) {
+            for (let i = 9; i < 11; i++) {
                 s_button[i].textContent = "";
             }
             break;
@@ -75,4 +74,5 @@ function showText() {
         default:
             break;
     }
+    return;
 }

@@ -1,4 +1,3 @@
-
 /* idの検出 */
 let map = document.getElementById("show-map");
 
@@ -12,8 +11,6 @@ for(let i = pBase+1; i < pNum; i++){
     p_sel[i-1].after(p);
     p_sel.push(p);
 }
-
-
 
 /* マップのプレイヤーを描画 */
 function drawPlayer(player) {
@@ -72,6 +69,7 @@ function showPlayer(player) {
         default:
             break;
     }
+    return;
 }
 
 /* マップ（盤面）の表示 */

@@ -1,4 +1,3 @@
-
 function setStatus(player, user) {
     console.log(player, user);
     player.name = user.name;
