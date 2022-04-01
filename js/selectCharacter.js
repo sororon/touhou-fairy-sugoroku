@@ -21,34 +21,19 @@ function selectStage(stage_num) {
 function selectCharacter(player) {
     if (scene != 1 || player.sel == 1) {
         console.log(scene, player);
+        scene == 1 ? alert("既に選択済みです") : console.log("シーン１以外でのクリック");
         return;
     }
-    if (player1.num == 0) { /* num==0すなわちデフォルト */
-        setStatus(player1, player);
-        player.sel = 1;
-        selectedPlayer++;
-        showImage();
-        return;
-    } else if (player2.num == 0) {
-        setStatus(player2, player);
-        player.sel = 1;
-        selectedPlayer++;
-        showImage();
-        return;
-    } else if (player3.num == 0) {
-        setStatus(player3, player);
-        player.sel = 1;
-        selectedPlayer++;
-        showImage();
-        return;
-    } else if (player4.num == 0) {
-        setStatus(player4, player);
-        player.sel = 1;
-        selectedPlayer++;
-        showImage();
-        return;
-    } else {
-        alert("既に選択済みです");
-        return;
-    }
+    
+    lst = [player1, player2, player3, player4]
+    lst.forEach((element,index) => { /* elementにlstの要素 */
+        if (element.num == 0 && player.sel == 0) {/* num==0すなわちデフォルトキャラ（player0） */
+            setStatus(element, player);
+            player.sel = 1;
+            selectedPlayer++;
+            showImage();
+            console.log(index); //index番目
+            return;
+        } 
+    });
 }

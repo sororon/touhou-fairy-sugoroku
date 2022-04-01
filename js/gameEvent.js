@@ -81,27 +81,38 @@ function whoOrder(num) {
     return;
 }
 
+/* 出た目の分キャラを動かした後に、マス目の効果を反映させるために2ms止める（無名関数） */
+const func_timer = (index, time) => {
+    const wait_time = () => { // setTimeoutの引数の関数はVoidのため
+        squareEffect(orderList[index]);
+        showMap();
+        showText();
+        showImage();
+    }
+    setTimeout(wait_time, Number(time));
+}
+
 /* さいころを振る */
 function throwDice() {
     moveOn = randomInteger(1, 6);
     console.log("さいころの目：" + moveOn);
 
     switch (roundCount) {
-        case 1:
+        case 1: // 一人目
             gotoPlayer(orderList[0]);
-            squareEffect(orderList[0]);
+            func_timer(0, 2000);
             break;
         case 2:
             gotoPlayer(orderList[1]);
-            squareEffect(orderList[1]);
+            func_timer(1, 2000);
             break;
         case 3:
             gotoPlayer(orderList[2]);
-            squareEffect(orderList[2]);
+            func_timer(2, 2000);
             break;
         case 4:
             gotoPlayer(orderList[3]);
-            squareEffect(orderList[3]);
+            func_timer(3, 2000);
             break;
         default:
             break;
@@ -130,9 +141,10 @@ function throwDice() {
         default:
             break;
     }
-
     showText();
     showMap();
+    showImage();
+    return;
 }
 
 /* 出た目に従ってプレイヤーが進む */
@@ -145,6 +157,9 @@ function gotoPlayer(player) {
         player.pos = stage.goal;
         console.log("ゴール！");
     }
+    showText();
+    showMap();
+    showImage();
 }
 
 /* マスごとのイベント呼び出し */

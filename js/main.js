@@ -109,6 +109,7 @@ function mainButton() {
             break;
         case 4: /* ゲームモード */
             throwDice();
+            showText();
             showMap();
             showImage();
             break;
