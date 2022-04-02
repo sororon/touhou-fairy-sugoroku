@@ -8,12 +8,12 @@ function goalPlayer(player) {
     rankPos++; // 一位がゴールして続けるなら必要
     winPlayer = player.name;
     orderList.forEach(element => {
-        resultImage(element);
+        resultEmotion(element);
     });
-    showImage();
-    showMap();
     player.emo = "smile";
     scene++; // リザルト画面へ
+    showImage();
+    showMap();
     return;
 }
 

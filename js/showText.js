@@ -25,7 +25,7 @@ function showText() {
             s_message.textContent = String("キャラクターを４匹選ぶと次に進めます。");
             e_button.textContent = String("キャラクター選択完了");
             for (let index = 1; index < 9; index++) {
-                s_button[index].textContent = String(character_lst[index-1].name);
+                s_button[index].textContent = String(characterList[index-1].name);
             }
             break;
         case 2: /* ステージ選択 */
@@ -50,7 +50,7 @@ function showText() {
             m_message.textContent = String("ターン" + turnCount);
             s_message.textContent = String("次は" + turnPlayer + "の番です。");
             e_button.textContent = String("サイコロを振る");
-            m_pos.textContent = String(moveOn);
+            m_pos.textContent = String("サイコロの目　" + moveOn);
             break;
         case 5: /* リザルト */
             m_message.textContent = String("結果発表");

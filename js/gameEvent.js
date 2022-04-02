@@ -74,6 +74,7 @@ function gotoPlayer(player) {
         player.pos = stage.goal;
         console.log("ゴール！");
     }
+    showText();
     showMap();
     return;
 }

@@ -42,7 +42,7 @@ function decideOrder() {
     fillOrder(player3);
     fillOrder(player4);
 
-    console.log("list:" + orderList);
+    console.log("list:", orderList);
 
     turnCount = 1; // 最初のターン
     roundCount = 1;
@@ -53,7 +53,7 @@ function decideOrder() {
 
 /* 実際に使用する順番のリストを順番通りに埋める */
 function fillOrder(player) {
-    console.log("fill" + player);
+    console.log(player, "fill done.");
     for (let i = 0; i < 4; i++) {
         if (player.order == 1) {
             orderList[0] = player;

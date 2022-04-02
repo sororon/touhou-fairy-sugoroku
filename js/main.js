@@ -1,20 +1,20 @@
 /* 実際に使用するキャラクター変数 */
-let player1 = new CharacterClass("p1", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
-let player2 = new CharacterClass("p2", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
-let player3 = new CharacterClass("p3", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
-let player4 = new CharacterClass("p4", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+let player1 = new CharacterClass("？？？", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+let player2 = new CharacterClass("？？？", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+let player3 = new CharacterClass("？？？", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+let player4 = new CharacterClass("？？？", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+let orderList = [player1, player2, player3, player4]; // 初期値として代入
 
 /* グローバル変数の定義 */
-let stage = new StageClass(0,0,0);
+let stage = new StageClass(0, 0, 0);
 let sqElement = [];
-let turnCount;
+let turnCount = 0;
 let roundCount = 0;
-let turnPlayer;
-let orderList = [player1, player2, player3, player4]; // 初期値として代入
+let playerCount = 0;
 let moveOn = 0;
 let rankPos = 1;
-let winPlayer;
-let selectedPlayer = 0; // 選択されたキャラクター数をカウント
+let turnPlayer = "";
+let winPlayer = "";
 
 /* 0:デフォルト　1:キャラ選択　2:ステージ選択　3:順番決め　4:ゲーム　5:リザルト */
 let scene = 0;
@@ -26,8 +26,7 @@ function mainButton() {
             showText();
             break;
         case 1: /* キャラクター選択 */
-            console.log("mode:" + scene, "sel_cnt:" + selectedPlayer);
-            if (selectedPlayer == 4) {
+            if (playerCount == 4) {
                 scene++;
                 showText();
                 showImage();
@@ -51,15 +50,7 @@ function mainButton() {
             throwDice();
             break;
         case 5: /* リザルト */
-            scene = 0;
-            orderList.forEach(element => {
-                setStatus(element, player0);
-            });
-            selectedPlayer = 0;
-            /* 全キャラクターの選択済みを解除 */
-            character_lst.forEach(element => {
-                element.sel = false;
-            });
+            allInitialize();
             showText();
             showMap();
             showImage();

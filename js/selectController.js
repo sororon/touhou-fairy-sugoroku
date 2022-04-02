@@ -21,16 +21,21 @@ function selectStage(stage_num) {
 /* キャラクター選択 */
 function selectCharacter(player) {
     if (scene != 1 || player.sel == true) {
-        console.log(player, "select failed");
         scene == 1 ? alert("既に選択済みです") : console.log("シーン１以外でのクリック");
+        console.log(player, "select failed.");
         return;
     } 
+    if (scene == 1 && playerCount == 4) {
+        alert("これ以上選べません");
+        console.log(player, "select failed.");
+        return;
+    }
 
     orderList.forEach(element => { /* elementにorderListの要素 */
         if (element.num == 0 && player.sel == false) {/* num==0すなわちデフォルトキャラ（player0） */
             setStatus(element, player);
             player.sel = true;
-            selectedPlayer++;
+            playerCount++;
             showImage();
             return;
         } 

@@ -7,10 +7,10 @@ const lily = new CharacterClass("リリーホワイト", "リリー", 0, 1000, 0
 const larva = new CharacterClass("エタニティラルバ", "ラルバ", 0, 1000, 0, 1, "nomal", 6, false);
 const dai = new CharacterClass("大妖精", "大妖精", 0, 1000, 0, 1, "nomal", 7, false);
 const chirno = new CharacterClass("チルノ", "チルノ", 0, 1000, 0, 1, "nomal", 8, false);
-const character_lst = [sunny, luna, star, clown, lily, larva, dai, chirno];
+const characterList = [sunny, luna, star, clown, lily, larva, dai, chirno];
 
 /* デフォルトキャラクター */
-const player0 = new CharacterClass("p0", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
+const player0 = new CharacterClass("？？？", "　　　", 0, 1000, 0, 1, "nomal", 0, false);
 
 /* キャラクターステータスのセッター */
 function setStatus(player, user) {
@@ -23,6 +23,6 @@ function setStatus(player, user) {
     player.emo = user.emo;
     player.num = user.num;
     player.sel = user.sel;
-	console.log(player, "↑set", user, "success.");
+	console.log(user, "status setting success.");
     return;
 }
