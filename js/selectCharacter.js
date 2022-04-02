@@ -15,6 +15,7 @@ function selectStage(stage_num) {
             break;
     }
     showMap();
+    return;
 }
 
 /* キャラクター選択 */
@@ -25,14 +26,13 @@ function selectCharacter(player) {
         return;
     }
     
-    lst = [player1, player2, player3, player4]
-    lst.forEach((element,index) => { /* elementにlstの要素 */
+    // let playerList = [player1, player2, player3, player4];
+    orderList.forEach(element => { /* elementにorderListの要素 */
         if (element.num == 0 && player.sel == false) {/* num==0すなわちデフォルトキャラ（player0） */
             setStatus(element, player);
             player.sel = true;
             selectedPlayer++;
             showImage();
-            console.log(index); //index番目
             return;
         } 
     });

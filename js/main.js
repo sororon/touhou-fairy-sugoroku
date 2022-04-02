@@ -1,4 +1,3 @@
-
 /* プレイヤーが持つ属性 */
 class CharacterClass
 {
@@ -81,14 +80,12 @@ function mainButton() {
             scene++;
             showText();
             showMap();
-            showImage();
             break;
         case 1: /* キャラクター選択 */
             console.log("mode:" + scene, "sel_cnt:" + selectedPlayer);
             if (selectedPlayer == 4) {
                 scene++;
                 showText();
-                showMap();
                 showImage();
             }
             break;
@@ -97,7 +94,6 @@ function mainButton() {
                 scene++;
                 showText();
                 showMap();
-                showImage();
             }
             break;
         case 3: /* 順番を決める */
@@ -112,10 +108,9 @@ function mainButton() {
             break;
         case 5: /* リザルト */
             scene = 0;
-            setStatus(player1, player0);
-            setStatus(player2, player0);
-            setStatus(player3, player0);
-            setStatus(player4, player0);
+            orderList.forEach(element => {
+                setStatus(element, player0);
+            });
             selectedPlayer = 0;
             /* 全キャラクターの選択済みを解除 */
             character_lst.forEach(element => {
@@ -128,5 +123,6 @@ function mainButton() {
         default:
             break;
     }
-    console.log("モード:" + scene);
+    console.log("mainButton　モード:" + scene);
+    return;
 }

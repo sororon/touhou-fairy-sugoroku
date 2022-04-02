@@ -2,14 +2,14 @@ let s_event = document.getElementById("show-event");
 
 /* ゴール */
 function goalPlayer(player) {
+    alert("ゴール！");
     s_event.textContent = String(player.name + "がゴールしました！おめでとう！");
     s_event.textContent += String("順位：" + rankPos + "位");
     rankPos++; // 一位がゴールして続けるなら必要
     winPlayer = player.name;
-    resultImage(player1);
-    resultImage(player2);
-    resultImage(player3);
-    resultImage(player4);
+    orderList.forEach(element => {
+        resultImage(element);
+    });
     showImage();
     showMap();
     player.emo = "smile";
