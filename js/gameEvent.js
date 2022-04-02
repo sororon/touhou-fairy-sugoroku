@@ -8,6 +8,7 @@ const func_timer = (index, time = 500) => {
         showText();
         showImage();
     }
+    /* 注意：高速でサイコロを振り続けてゴールすると、すごろく進行中にゲーム終了してしまう（要修正） */
     setTimeout(wait_time, Number(time));
 }
 
