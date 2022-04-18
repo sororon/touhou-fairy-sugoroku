@@ -11,6 +11,9 @@ function selectStage(stage_num) {
         case 2:
             setStage(2);
             break;
+        case 3:
+            setStage(3);
+            break;
         default:
             break;
     }

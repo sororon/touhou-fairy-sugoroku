@@ -4,8 +4,8 @@ let s_message = document.getElementById("sub-message");
 let e_button = document.getElementById("event-button");
 let m_pos = document.getElementById("move-pos");
 
-let s_button = [];
-for (let index = 1; index < 11; index++) {
+let s_button = []; // キャラクター数とステージ数の数
+for (let index = 1; index < 12; index++) {
     s_button[index] = document.getElementById("select-btn" + index);
 }
 
@@ -13,7 +13,7 @@ for (let index = 1; index < 11; index++) {
 function showText() {
     switch (scene) {
         case 0: /* デフォルト */
-            m_message.textContent = String("東方すごろくへようこそ！");
+            m_message.textContent = String("東方フェアリーすごろくへようこそ！");
             s_message.textContent = String("一番早くゴールすると勝利！");
             e_button.textContent = String("遊ぶ");
             for (let i = 1; i < 9; i++) {
@@ -37,12 +37,13 @@ function showText() {
             }
             s_button[9].textContent = String("ステージ１");
             s_button[10].textContent = String("ステージ２");
+            s_button[11].textContent = String("ステージ３");
             break;
         case 3: /* 順番決め */
             m_message.textContent = String("プレイヤーの順番を決めます");
             s_message.textContent = String("下にあるボタンをクリックすると順番が決定します");
             e_button.textContent = String("順番を決める");
-            for (let i = 9; i < 11; i++) {
+            for (let i = 9; i < 12; i++) {
                 s_button[i].textContent = "";
             }
             break;

@@ -7,6 +7,7 @@ const func_timer = (index, time = 500) => {
         showMap();
         showText();
         showImage();
+        check_money(orderList[index]);
     }
     /* 注意：高速でサイコロを振り続けてゴールすると、すごろく進行中にゲーム終了してしまう（要修正） */
     setTimeout(wait_time, Number(time));
@@ -16,51 +17,16 @@ const func_timer = (index, time = 500) => {
 function throwDice() {
     moveOn = randomInteger(1, 6);
     console.log("さいころの目：" + moveOn);
-
-    switch (roundCount) {
-        case 1: // 一人目
-            gotoPlayer(orderList[0]);
-            func_timer(0, );
-            break;
-        case 2:
-            gotoPlayer(orderList[1]);
-            func_timer(1, );
-            break;
-        case 3:
-            gotoPlayer(orderList[2]);
-            func_timer(2, );
-            break;
-        case 4:
-            gotoPlayer(orderList[3]);
-            func_timer(3, );
-            break;
-        default:
-            break;
-    }
-
+    gotoPlayer(orderList[roundCount-1]); // orderList[]はゼロオリジン、roundCountはn人目の判別
+    func_timer(roundCount-1);
     if (roundCount >= 4) {
         roundCount = 0; // 4人周ったのでリセット
         turnCount++;
         console.log("ターン" + turnCount);
     }
-
     roundCount++;
-    switch (roundCount) { // さいころを振るプレイヤーの判別 
-        case 1:
-            whoOrder(1);
-            break;
-        case 2:
-            whoOrder(2);
-            break;
-        case 3:
-            whoOrder(3);
-            break;
-        case 4:
-            whoOrder(4);
-            break;
-        default:
-            break;
-    }
+    // さいころを振るプレイヤーの判別 
+    whoOrder(roundCount);
     return;
 }
 
@@ -81,20 +47,39 @@ function gotoPlayer(player) {
 
 /* マスごとのイベント呼び出し */
 function squareEffect(player) {
-    if (sqElement[player.pos].type == "goal") {
-        goalPlayer(player);
-        return;
-    } else if (sqElement[player.pos].type == "lost-money") {
-        lostMoney(player, sqElement[player.pos].value);
-        return;
-    } else if (sqElement[player.pos].type == "get-money") {
-        getMoney(player, sqElement[player.pos].value);
-        return;
-    } else if (sqElement[player.pos].type == "goto-place") {
-        gotoPlace(player, sqElement[player.pos].value);
-        return;
-    } else if (sqElement[player.pos].type == "back-place") {
-        backPlace(player, sqElement[player.pos].value);
+    switch (sqElement[player.pos].type) {
+        case "goal":
+            goalPlayer(player);
+            break;
+        case "lost-money":
+            lostMoney(player, sqElement[player.pos].value);
+            break;
+        case "get-money":
+            getMoney(player, sqElement[player.pos].value);
+            break;
+        case "goto-place":
+            gotoPlace(player, sqElement[player.pos].value);
+            break;
+        case "back-place":
+            backPlace(player, sqElement[player.pos].value);
+            break;
+        default:
+            break;
+    }
+    return;
+}
+
+/* 所持金のチェック */
+let check_money = (player) => {
+    if (player.money <= 0) {
+        alert(player.name + "の所持金がなくなりました\nスタートに戻る")
+        player.money = 999;
+        player.pos = 0;
+        player.emo = "cry";
+        // 所持金喪失後の画面更新処理
+        showText();
+        showImage();
+        showMap();
         return;
     } 
 }
